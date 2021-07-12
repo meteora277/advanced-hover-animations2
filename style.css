@@ -1,0 +1,131 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    font-family: arial;
+    padding: 0.8rem 1.5rem;
+    text-align: center;
+    margin: 0;
+    background-color: lightseagreen;
+}
+
+button {
+    display: block;
+    border: none;
+    background-color: lightgrey;
+    padding: .8rem 1.5rem;
+    cursor: pointer;
+    margin: 2rem 0px;
+    position: relative;
+    left: 50vw;
+    transform: translateX(-50%);
+}
+
+.border-pop {
+    --border-size: 0.2rem;
+}
+
+.border-pop:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: var(--border-size) solid lightgrey;
+    z-index: -1;
+    transition-duration: 200ms;
+    transition-timing-function: ease-in;
+}
+
+.border-pop:hover::before,
+.border-pop:focus::before {
+    top: calc(var(--border-size) * -2);
+    bottom: calc(var(--border-size) * -2);
+    left: calc(var(--border-size) * -2);
+    right: calc(var(--border-size) * -2);
+}
+
+.button-slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.button-slider:hover::before {
+    z-index: -1;
+    background-color: rgb(69, 165, 255);
+    color: white;
+    transform: scaleX(1)
+}
+
+.button-slider:hover {
+    color: white;
+}
+
+.circle-background {
+    background-color: rgb(69, 165, 255);
+    overflow: hidden;
+    transition-timing-function: ease-in-out;
+    transition: color 200ms;
+}
+
+.circle-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    transform: scale(1.5);
+    background-color: lightgrey;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.circle-background:hover::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scale(0);
+}
+
+.circle-background:hover {
+    color: white;
+}
+
+.button-underline::before {
+    content: "";
+    position: absolute;
+    border-bottom: 0.2rem solid rgb(69, 165, 255);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    transition-duration: 200ms;
+    transform: scaleX(0);
+    transition-timing-function: ease-in-out;
+}
+
+.button-underline:hover::before {
+    transform: scaleX(1)
+}
